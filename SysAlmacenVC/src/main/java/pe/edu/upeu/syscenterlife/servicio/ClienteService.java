@@ -8,27 +8,37 @@ import pe.edu.upeu.syscenterlife.modelo.repositorio.ClienteRepository;
 
 @Service
 public class ClienteService {
+
     @Autowired
     ClienteRepository clienteRepository;
-    
+
     //Create
-    public Cliente guardarEntidad(Cliente cliente){
-    return clienteRepository.save(cliente);
+    public Cliente guardarEntidad(Cliente cliente) {
+        return clienteRepository.save(cliente);
     }
+
     //Report
-    public List<Cliente> listarEntidad(){
-    return clienteRepository.findAll();
+    public List<Cliente> listarEntidad() {
+        return clienteRepository.findAll();
     }
+
     //Update
-    public Cliente actualizarEntidad(Cliente cliente ){
-    return clienteRepository.save(cliente);
+    public Cliente actualizarEntidad(Cliente cliente) {
+        return clienteRepository.save(cliente);
     }
+
     //Delete
-    public void eliminarRegEntidad(String dniruc){
+    public void eliminarRegEntidad(String dniruc) {
         clienteRepository.delete(clienteRepository.findById(dniruc).get());
     }
+
     //Buscar
-    public Cliente buscarCliente(String dniruc){
-    return clienteRepository.findById(dniruc).get();
+    public Cliente buscarCliente(String dniruc) {
+        return clienteRepository.findById(dniruc).get();
+    }
+
+    //Buscar
+    public List<Cliente> buscarClienteNombre(String nombre) {
+        return clienteRepository.findByNombre("%" + nombre + "%");
     }
 }
