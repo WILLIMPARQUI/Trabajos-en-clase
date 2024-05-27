@@ -1,4 +1,3 @@
-
 package pe.edu.upeu.syscenterlife.modelo.repositorio;
 
 import java.util.List;
@@ -14,5 +13,7 @@ public interface ProductoRepository extends JpaRepository<Producto, Integer> {
     // Método para encontrar productos por su nombre usando una consulta SQL nativa
     @Query(value = "SELECT * FROM Producto WHERE nombre = :nombre", nativeQuery = true)
     List<Producto> findProductosByNombreNative(@Param("nombre") String nombre);
-}
 
+    @Query(value = "SELECT p.* FROM Producto p WHERE p.nombre like :filter", nativeQuery = true)
+    List<Producto> listAutoCompletProducto(@Param("filter") String filter);
+}
