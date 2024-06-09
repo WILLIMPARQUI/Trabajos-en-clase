@@ -14,6 +14,6 @@ public interface ProductoRepository extends JpaRepository<Producto, Integer> {
     @Query(value = "SELECT * FROM Producto WHERE nombre = :nombre", nativeQuery = true)
     List<Producto> findProductosByNombreNative(@Param("nombre") String nombre);
 
-    @Query(value = "SELECT p.* FROM Producto p WHERE p.nombre like :filter", nativeQuery = true)
-    List<Producto> listAutoCompletProducto(@Param("filter") String filter);
+    @Query(value = "SELECT p.* FROM Producto p WHERE p.id_marca=:filter", nativeQuery = true)
+    List<Producto> listProductoMarca(@Param("filter") Integer filter);
 }
