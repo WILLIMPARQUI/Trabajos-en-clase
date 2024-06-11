@@ -17,14 +17,14 @@ import javax.swing.JLabel;
  */
 public class Controlador {
 
-    private Vista vista;
-    private Modelo model;
-    private JLabel[][] casillas;
+    public Vista vista;
+    public Modelo model;
+    public JLabel[][] casillas;
 
     public Controlador(Vista vista, Modelo model) {
         this.vista = vista;
         this.model = model;
-        JLabel[][] casillas = vista.getCasillas();
+        casillas = vista.getCasillas();
         agregarListener();
         crearJugadores();
 

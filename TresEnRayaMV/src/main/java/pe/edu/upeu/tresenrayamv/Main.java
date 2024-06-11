@@ -13,8 +13,9 @@ public class Main {
         Modelo model= new Modelo();
         Vista vista=new Vista();
         Controlador controlador = new Controlador(vista,model);
-        vista.setLocationRelativeTo(null);
-        vista.setVisible(true);
+        controlador.vista.setLocationRelativeTo(null);
+        //vista.setLocationRelativeTo(null);
+        controlador.vista.setVisible(true);
     }
     
 }
